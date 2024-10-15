@@ -9,7 +9,7 @@
 }
 
 .tinyfoot-footnote__button.read {
-  background-color: lightblue; /* 将颜色改为浅蓝色 */
+  background-color: lightblue; /* 改为蓝色 */
 }
 
 #footnote-counter {
@@ -21,4 +21,5 @@
   border-radius: 5px;
   font-size: 0.9em;
 }
+
 
