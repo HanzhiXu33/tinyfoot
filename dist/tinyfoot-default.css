@@ -1,1 +1,24 @@
+.tinyfoot-footnote__button {
+  position: relative;
+  padding: 0.35em;
+  margin: 0 0.1em;
+  background-color: rgba(110, 110, 110, 0.2);
+  cursor: pointer;
+  border-radius: 0.3em;
+  transition: background-color 0.25s ease;
+}
+
+.tinyfoot-footnote__button.read {
+  background-color: lightblue; /* 将颜色改为浅蓝色 */
+}
+
+#footnote-counter {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: lightgrey;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
 
