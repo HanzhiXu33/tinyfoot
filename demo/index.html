@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinyfoot.js Test</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="../dist/tinyfoot-default.css">
+    <script src="../src/tinyfoot.js"></script>
+</head>
+<body>
+
+    <h1>Testing Tinyfoot.js</h1>
+    <p>
+        This is a simple test paragraph that includes a footnote.<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup> 
+        Tinyfoot.js should convert this into an interactive footnote.
+    </p>
+    <p>
+        You can also add another footnote here.<sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup> 
+    </p>
+
+    <div id="footnote-counter"></div>
+
+    <script>
+        // Initialize Tinyfoot.js
+        $.tinyfoot();
+    </script>
+
+</body>
+</html>
