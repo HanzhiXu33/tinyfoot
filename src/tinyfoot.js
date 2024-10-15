@@ -1,37 +1,33 @@
 (function() {
-  (function($) {
-    return $.tinyfoot = function(options) {
-      var settings, footnoteInit, updateCounters;
+  // Initialize tinyfoot functionality
+  function tinyfoot() {
+    // Get all footnote buttons
+    const footnotes = document.querySelectorAll('.tinyfoot-footnote__button');
+    let totalFootnotes = footnotes.length;
+    let unreadFootnotes = totalFootnotes;
 
-      settings = $.extend({
-        buttonMarkup: "<div class='tinyfoot-footnote__container'><button class='tinyfoot-footnote__button' data-footnote-number='{{FOOTNOTENUM}}'>{{FOOTNOTENUM}}</button></div>"
-      }, options);
+    // Update counters in the page
+    function updateCounters() {
+      document.getElementById('footnote-counter').textContent = 
+        `Total Footnotes: ${totalFootnotes}, Unread Footnotes: ${unreadFootnotes}`;
+    }
 
-      // Function to initialize footnotes
-      footnoteInit = function() {
-        var footnotes = $(".tinyfoot-footnote__button");
-        updateCounters(); // Update the counters
-
-        // Add click event to footnote buttons
-        footnotes.on('click', function() {
-          if (!$(this).hasClass('read')) {
-            $(this).addClass('read');
-            $(this).css('background-color', 'lightblue'); // Change color to blue when read
-            updateCounters(); // Recalculate counters
-          }
-        });
-      };
-
-      // Function to update counters (total and unread)
-      updateCounters = function() {
-        var totalFootnotes = $(".tinyfoot-footnote__button").length;
-        var unreadFootnotes = $(".tinyfoot-footnote__button:not(.read)").length;
-        $('#footnote-counter').text(`Total Footnotes: ${totalFootnotes}, Unread Footnotes: ${unreadFootnotes}`);
-      };
-
-      $(document).ready(function() {
-        footnoteInit(); // Initialize footnotes on page load
+    // Add click event listener to all footnote buttons
+    footnotes.forEach(function(footnote) {
+      footnote.addEventListener('click', function() {
+        if (!footnote.classList.contains('read')) {
+          footnote.classList.add('read');
+          footnote.style.backgroundColor = 'lightblue';  // Change color to blue
+          unreadFootnotes--;
+          updateCounters();  // Update counters after click
+        }
       });
-    };
-  })(jQuery);
+    });
+
+    // Initial update of counters
+    updateCounters();
+  }
+
+  // Run tinyfoot when the document is ready
+  document.addEventListener('DOMContentLoaded', tinyfoot);
 })();
