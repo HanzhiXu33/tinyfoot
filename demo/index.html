@@ -19,12 +19,28 @@
         You can also add another footnote here.<sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup> 
     </p>
 
-    <div id="footnote-counter"></div>
+    <hr>
+
+    <section class="footnotes">
+        <ol>
+            <li id="fn1">
+                This is the first footnote.<a href="#fnref1" rev="footnote">↩</a>
+            </li>
+            <li id="fn2">
+                This is the second footnote.<a href="#fnref2" rev="footnote">↩</a>
+            </li>
+        </ol>
+    </section>
+
+    <div id="footnote-counter">Total Footnotes: 0, Unread Footnotes: 0</div>
 
     <script>
-        // Initialize Tinyfoot.js
-        $.tinyfoot();
+        // Initialize Tinyfoot.js after the document is fully loaded
+        $(document).ready(function() {
+            $.tinyfoot();  // This initializes the footnotes
+        });
     </script>
 
 </body>
 </html>
+
